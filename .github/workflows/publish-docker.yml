@@ -1,0 +1,36 @@
+name: Publish Docker
+
+on:
+  release:
+      types: [published]
+  push:
+    branches:
+      - develop
+
+jobs:
+  Update:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Get release version
+      run: bash .github/scripts/publish-docker.bash
+
+    - name: Publish to Registry (with a tagged image)
+      if: ${{ env.PUBLISH_RELEASE_VERSION == 'true' }}
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: paveloom-d/binder-julia-plots/binder-julia-plots
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+        registry: docker.pkg.github.com
+        tags: "latest,${{ env.RELEASE_VERSION }}"
+
+    - name: Publish to Registry (without a tagged image)
+      if: ${{ env.PUBLISH_RELEASE_VERSION == 'false' }}
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: paveloom-d/binder-julia-plots/binder-julia-plots
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+        registry: docker.pkg.github.com
+        tags: "latest"
