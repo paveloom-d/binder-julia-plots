@@ -1,0 +1,23 @@
+language: shell
+dist: bionic
+
+os:
+  - linux
+
+branches:
+  except:
+  - master
+  - develop
+  - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
+
+services:
+  - docker
+
+jobs:
+  include:
+    - stage: "Build"
+      name: "Build Docker Image"
+      script: bash .github/scripts/build.bash
+
+notifications:
+  email: false
