@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: binder-julia-plots
+  labels:
+    app: binder-julia-plots
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: binder-julia-plots
+  template:
+    metadata:
+      labels:
+        app: binder-julia-plots
+    spec:
+      containers:
+      - name: binder-julia-plots
+        image: paveloom/binder-julia-plots:0.1.0
+        ports:
+        - containerPort: 8888
+        command: ["jupyter", "lab", "--allow-root"]
