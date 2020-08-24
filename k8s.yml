@@ -19,4 +19,20 @@ spec:
         image: paveloom/binder-julia-plots:0.1.0
         ports:
         - containerPort: 8888
-        command: ["jupyter", "lab", "--allow-root"]
+        command: ["jupyter", "lab", "--ip=0.0.0.0", "--no-browser", "--allow-root"]
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: jupyter-hub
+  annotations:
+    dev.okteto.com/auto-ingress: "true"
+spec:
+  type: ClusterIP
+  ports:
+  - name: "jupyter-hub"
+    port: 8888
+  selector:
+    app: binder-julia-plots

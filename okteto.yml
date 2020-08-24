@@ -1,6 +1,6 @@
 name: binder-julia-plots
 image: paveloom/binder-julia-plots:0.1.0
-command: ["jupyter", "notebook", "--allow-root"]
+command: ["jupyter", "lab", "--ip=0.0.0.0", "--no-browser", "--allow-root"]
 workdir: /examples
 persistentVolume:
   enabled: true
