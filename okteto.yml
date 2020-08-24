@@ -6,8 +6,10 @@ persistentVolume:
   enabled: true
 forward:
   - 8888:8888
-reverse:
-  - 9000:9001
+resources:
+  cpu: 4000m
+  memory: 8Gi
+  storage: 5Gi
 securityContext:
   runAsUser: 1000
   runAsGroup: 2000
