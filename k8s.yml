@@ -25,8 +25,8 @@ spec:
             memory: "8G"
             cpu: "4000m"
           limits:
-            memory: "4G"
-            cpu: "2000m"
+            memory: "8G"
+            cpu: "4000m"
 
 ---
 
