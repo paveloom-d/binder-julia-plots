@@ -22,8 +22,8 @@ spec:
         command: ["jupyter", "lab", "--ip=0.0.0.0", "--no-browser", "--allow-root"]
         resources:
           requests:
-            memory: "4Gi"
-            cpu: "2000m"
+            memory: "8Gi"
+            cpu: "4000m"
           limits:
             memory: "8Gi"
             cpu: "4000m"
