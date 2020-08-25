@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: binder-julia-plots
+  name: jupyter-hub
   labels:
-    app: binder-julia-plots
+    app: jupyter-hub
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: binder-julia-plots
+      app: jupyter-hub
   template:
     metadata:
       labels:
-        app: binder-julia-plots
+        app: jupyter-hub
     spec:
       containers:
       - name: binder-julia-plots
