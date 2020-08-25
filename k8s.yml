@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: jupyter-hub
+  name: jupyter-lab
   labels:
-    app: jupyter-hub
+    app: jupyter-lab
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: jupyter-hub
+      app: jupyter-lab
   template:
     metadata:
       labels:
-        app: jupyter-hub
+        app: jupyter-lab
     spec:
       containers:
       - name: binder-julia-plots
@@ -42,4 +42,4 @@ spec:
   - name: "jupyter-lab"
     port: 8888
   selector:
-    app: binder-julia-plots
+    app: jupyter-lab
