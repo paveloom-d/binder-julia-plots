@@ -20,16 +20,17 @@ plots. See more details about the content of the image under the spoiler.
   <li>
     Base image:
     <a href="https://github.com/paveloom-d/binder-tex">paveloom/binder-tex</a>
-    (0.1.1)
+    (0.1.2)
   </li>
   <li>
     Julia environment
     from <a href=https://github.com/paveloom-d/binder-julia>paveloom/binder-julia</a>
-    (0.1.1)
+    (0.1.2):
     <ul>
-      <li>Packages</li>
+      <li>Packages:</li>
       <ul>
         <li><a href="https://github.com/JuliaLang/IJulia.jl">IJulia.jl</a></li>
+        <li><a href="https://github.com/heliosdrm/GRUtils.jl">GRUtils.jl</a></li>
         <li><a href="https://github.com/JuliaPy/PyPlot.jl">PyPlot.jl</a></li>
         <li><a href="https://github.com/JuliaPlots/Plots.jl">Plots.jl</a></li>
       <ul>
@@ -56,5 +57,6 @@ FROM paveloom/binder-julia-plots:tag
 
 where the `tag` is one of the following:
 
+* [0.1.2](https://github.com/paveloom-d/binder-julia-plots/releases/tag/v0.1.2)
 * [0.1.1](https://github.com/paveloom-d/binder-julia-plots/releases/tag/v0.1.1)
 * [0.1.0](https://github.com/paveloom-d/binder-julia-plots/releases/tag/v0.1.0)
