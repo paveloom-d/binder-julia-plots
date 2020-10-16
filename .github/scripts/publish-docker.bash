@@ -25,10 +25,10 @@ if [ ! -z "$LAST_VERSION" ]; then
           echo -e "\e[1;36mCurrent tag is a semantic version. Tagged image will be published.\e[0m\n"
 
           # Set environment variable
-          echo ::set-env name=RELEASE_VERSION::$(echo ${CURRENT_TAG} | sed 's/v//')
+          echo "RELEASE_VERSION=$(echo ${CURRENT_TAG} | sed 's/v//')" >> $GITHUB_ENV
 
           # Publish tagged image
-          echo ::set-env name=PUBLISH_RELEASE_VERSION::$(echo true)
+          echo "PUBLISH_RELEASE_VERSION=true" >> $GITHUB_ENV
 
      else
 
@@ -36,7 +36,7 @@ if [ ! -z "$LAST_VERSION" ]; then
           echo -e "\e[1;36mCurrent tag is not a semantic version. Tagged image will not be published.\e[0m\n"
 
           # Don't publish tagged image
-          echo ::set-env name=PUBLISH_RELEASE_VERSION::$(echo false)
+          echo "PUBLISH_RELEASE_VERSION=false" >> $GITHUB_ENV
 
      fi
 
@@ -46,6 +46,6 @@ else
      echo -e "\n\e[1;36mNo release has been found, tagged version will not be published.\e[0m\n"
 
      # Don't publish tagged image
-     echo ::set-env name=PUBLISH_RELEASE_VERSION::$(echo false)
+     echo "PUBLISH_RELEASE_VERSION=false" >> $GITHUB_ENV
 
 fi

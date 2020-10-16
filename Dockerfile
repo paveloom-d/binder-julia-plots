@@ -1,12 +1,12 @@
 # Pull the image containing Julia
-FROM paveloom/binder-julia:0.1.1 AS binder-julia
+FROM paveloom/binder-julia:0.1.2 AS binder-julia
 
 # Base image
-FROM paveloom/binder-tex:0.1.1
+FROM paveloom/binder-tex:0.1.2
 
 # Meta information
 LABEL maintainer="Pavel Sobolev (https://github.com/Paveloom)"
-LABEL version="0.1.1"
+LABEL version="0.1.2"
 LABEL description="If `paveloom/binder-julia` and `paveloom/binder-tex` had a baby."
 LABEL github-repository="https://github.com/paveloom-d/binder-julia-plots"
 LABEL docker-repository="https://hub.docker.com/r/paveloom/binder-julia-plots"
